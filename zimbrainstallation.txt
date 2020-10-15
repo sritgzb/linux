@@ -1,0 +1,540 @@
+#chown root:named /var/named/checkmateguards.in.fw
+#chkconfig --list named
+#nslookup smartlogicit.in
+#chkconfig --list | grep sendmail
+#netstat -tln | grep :25
+#netstat -tunlp | grep listen
+#telnet mail.smartlogicit.in 7025
+#curl ifconfig.me
+#dig -t mx mail.smartlogicit.in
+#tail -f /var/log/maillog
+#zmcontrol status
+#zmcontrol -v
+
+******************************************************************************
+# nmtui
+# cat /etc/sysconfig/network-scripts/ifcfg-eth0 
+# systemctl restart network
+# hostnamectl set-hostname mail1.smartlogicit.com
+
+-------------STOP POSTFIX------------
+
+#service postfix stop
+#chkconfig postfix off
+#chkconfix	--list postfix
+	or
+#chkconfig --list | grep postfix
+
+---------------SELINUX-----------------
+#sestatus
+#setenforce 0
+#vim /etc/selinx/config
+	
+	SELINUX=disabled
+OR
+
+# vi /etc/sysconfig/selinux
+
+	SELINUX=disabled
+
+#yum install -y unzip openssh-clients perl-core libaio nmap-ncat net-tools wget libstdc++.so.6
+
+
+#cd zcs-8.7.11_GA_1854.RHEL6_64
+#./install.sh
+
+
+Do you agree with the terms of the software license agreement? [N] y
+Use Zimbra's package repository [Y] y
+Install zimbra-ldap [Y] y
+Install zimbra-logger [Y] y
+Install zimbra-logger [Y] y
+Install zimbra-mta [Y] y
+Install zimbra-dnscache [Y] n
+Install zimbra-snmp [Y] n
+Install zimbra-store [Y] y
+Install zimbra-apache [Y] y
+Install zimbra-spell [Y] y
+Install zimbra-memcached [Y] y
+Install zimbra-proxy [Y] y
+Install zimbra-chat [Y] y
+Install zimbra-drive [Y] n
+The system will be modified.  Continue? [N] y
+Change domain name? [Yes] y
+Re-Enter domain name? [Yes] n    
+
+
+
+******************************************************************************************************************************************
+
+[root@mail zcs-8.7.11_GA_1854.RHEL6_64.20170531151956]# ./install.sh 
+
+Operations logged to /tmp/install.log.nN4KRGBR
+Checking for existing installation...
+    zimbra-chat...NOT FOUND
+    zimbra-drive...NOT FOUND
+    zimbra-suiteplus...NOT FOUND
+    zimbra-ldap...NOT FOUND
+    zimbra-logger...NOT FOUND
+    zimbra-mta...NOT FOUND
+    zimbra-dnscache...NOT FOUND
+    zimbra-snmp...NOT FOUND
+    zimbra-store...NOT FOUND
+    zimbra-apache...NOT FOUND
+    zimbra-spell...NOT FOUND
+    zimbra-convertd...NOT FOUND
+    zimbra-memcached...NOT FOUND
+    zimbra-proxy...NOT FOUND
+    zimbra-archiving...NOT FOUND
+    zimbra-core...NOT FOUND
+
+
+----------------------------------------------------------------------
+PLEASE READ THIS AGREEMENT CAREFULLY BEFORE USING THE SOFTWARE.
+SYNACOR, INC. ("SYNACOR") WILL ONLY LICENSE THIS SOFTWARE TO YOU IF YOU
+FIRST ACCEPT THE TERMS OF THIS AGREEMENT. BY DOWNLOADING OR INSTALLING
+THE SOFTWARE, OR USING THE PRODUCT, YOU ARE CONSENTING TO BE BOUND BY
+THIS AGREEMENT. IF YOU DO NOT AGREE TO ALL OF THE TERMS OF THIS
+AGREEMENT, THEN DO NOT DOWNLOAD, INSTALL OR USE THE PRODUCT.
+
+License Terms for this Zimbra Collaboration Suite Software:
+https://www.zimbra.com/license/zimbra-public-eula-2-6.html
+----------------------------------------------------------------------
+
+
+
+Do you agree with the terms of the software license agreement? [N] y
+
+
+
+
+
+Use Zimbra's package repository [Y] y
+
+Importing Zimbra GPG key
+
+Configuring package repository
+
+Checking for installable packages
+
+Found zimbra-core (local)
+Found zimbra-ldap (local)
+Found zimbra-logger (local)
+Found zimbra-mta (local)
+Found zimbra-dnscache (local)
+Found zimbra-snmp (local)
+Found zimbra-store (local)
+Found zimbra-apache (local)
+Found zimbra-spell (local)
+Found zimbra-memcached (repo)
+Found zimbra-proxy (local)
+Found zimbra-chat (repo)
+Found zimbra-drive (repo)
+
+
+Select the packages to install
+
+Install zimbra-ldap [Y] y
+
+Install zimbra-logger [Y] y
+
+Install zimbra-mta [Y] y
+
+Install zimbra-dnscache [Y] n
+
+Install zimbra-snmp [Y] n
+
+Install zimbra-store [Y] y
+
+Install zimbra-apache [Y] y
+
+Install zimbra-spell [Y] y
+
+Install zimbra-memcached [Y] y
+
+Install zimbra-proxy [Y] y
+
+Install zimbra-chat [Y] y
+
+Install zimbra-drive [Y] n
+Checking required space for zimbra-core
+Checking space for zimbra-store
+Checking required packages for zimbra-store
+zimbra-store package check complete.
+
+Installing:
+    zimbra-core
+    zimbra-ldap
+    zimbra-logger
+    zimbra-mta
+    zimbra-store
+    zimbra-apache
+    zimbra-spell
+    zimbra-memcached
+    zimbra-proxy
+    zimbra-chat
+
+The system will be modified.  Continue? [N] y
+
+Beginning Installation - see /tmp/install.log.nN4KRGBR for details...
+
+                 zimbra-core will be installed.
+      zimbra-core-components will be downloaded and installed.
+                 zimbra-ldap will be installed.
+      zimbra-ldap-components will be downloaded and installed.
+               zimbra-logger will be installed.
+                  zimbra-mta will be installed.
+       zimbra-mta-components will be downloaded and installed.
+                zimbra-store will be installed.
+     zimbra-store-components will be downloaded and installed.
+               zimbra-apache will be installed.
+    zimbra-apache-components will be downloaded and installed.
+                zimbra-spell will be installed.
+     zimbra-spell-components will be downloaded and installed.
+            zimbra-memcached will be downloaded and installed.
+                zimbra-proxy will be installed.
+     zimbra-proxy-components will be downloaded and installed.
+                 zimbra-chat will be downloaded and installed.
+
+Downloading packages (8):
+   zimbra-core-components
+   zimbra-ldap-components
+   zimbra-mta-components
+   zimbra-store-components
+   zimbra-apache-components
+   zimbra-spell-components
+   zimbra-memcached
+   zimbra-proxy-components
+      ...done
+
+Removing /opt/zimbra
+Removing zimbra crontab entry...done.
+Cleaning up zimbra init scripts...done.
+Cleaning up /etc/security/limits.conf...done.
+
+Finished removing Zimbra Collaboration Server.
+
+
+Installing repo packages (8):
+   zimbra-core-components
+   zimbra-ldap-components
+   zimbra-mta-components
+   zimbra-store-components
+   zimbra-apache-components
+   zimbra-spell-components
+   zimbra-memcached
+   zimbra-proxy-components
+      ...done
+
+Installing local packages (8):
+   zimbra-core
+   zimbra-ldap
+   zimbra-logger
+   zimbra-mta
+   zimbra-store
+   zimbra-apache
+   zimbra-spell
+   zimbra-proxy
+      ...done
+
+Installing extra packages (1):
+   zimbra-chat
+      ...done
+
+Running Post Installation Configuration:
+Operations logged to /tmp/zmsetup.20190710-135100.log
+Installing LDAP configuration database...done.
+Setting defaults...
+
+DNS ERROR resolving MX for mail.smartlogicit.in
+It is suggested that the domain name have an MX record configured in DNS
+Change domain name? [Yes] y
+Create domain: [mail.smartlogicit.in] smartlogicit.com
+	MX: mail.smartlogicit.com (198.54.115.141)
+
+	Interface: 192.168.1.101
+	Interface: 127.0.0.1
+	Interface: ::1
+
+
+DNS ERROR - none of the MX records for smartlogicit.com
+resolve to this host
+It is suggested that the MX record resolve to this host
+Re-Enter domain name? [Yes] n               
+done.
+
+Checking for port conflicts
+
+Main menu
+
+   1) Common Configuration:                                                  
+   2) zimbra-ldap:                             Enabled                       
+   3) zimbra-logger:                           Enabled                       
+   4) zimbra-mta:                              Enabled                       
+   5) zimbra-store:                            Enabled                       
+        +Create Admin User:                    yes                           
+        +Admin user to create:                 admin@smartlogicit.com        
+******* +Admin Password                        UNSET                         
+        +Anti-virus quarantine user:           virus-quarantine.cwj7jssvyh@smartlogicit.com
+        +Enable automated spam training:       yes                           
+        +Spam training user:                   spam.iyoieaycrh@smartlogicit.com
+        +Non-spam(Ham) training user:          ham.tgbgs_iil@smartlogicit.com
+        +SMTP host:                            mail.smartlogicit.in          
+        +Web server HTTP port:                 8080                          
+        +Web server HTTPS port:                8443                          
+        +Web server mode:                      https                         
+        +IMAP server port:                     7143                          
+        +IMAP server SSL port:                 7993                          
+        +POP server port:                      7110                          
+        +POP server SSL port:                  7995                          
+        +Use spell check server:               yes                           
+        +Spell server URL:                     http://mail.smartlogicit.in:7780/aspell.php
+        +Enable version update checks:         TRUE                          
+        +Enable version update notifications:  TRUE                          
+        +Version update notification email:    admin@smartlogicit.com        
+        +Version update source email:          admin@smartlogicit.com        
+        +Install mailstore (service webapp):   yes                           
+        +Install UI (zimbra,zimbraAdmin webapps): yes                           
+
+   6) zimbra-spell:                            Enabled                       
+   7) zimbra-proxy:                            Enabled                       
+   8) Default Class of Service Configuration:                                
+   s) Save config to file                                                    
+   x) Expand menu                                                            
+   q) Quit                                    
+
+Address unconfigured (**) items  (? - help) 
+Main menu
+
+   1) Common Configuration:                                                  
+   2) zimbra-ldap:                             Enabled                       
+   3) zimbra-logger:                           Enabled                       
+   4) zimbra-mta:                              Enabled                       
+   5) zimbra-store:                            Enabled                       
+        +Create Admin User:                    yes                           
+        +Admin user to create:                 admin@smartlogicit.com        
+******* +Admin Password                        UNSET                         
+        +Anti-virus quarantine user:           virus-quarantine.cwj7jssvyh@smartlogicit.com
+        +Enable automated spam training:       yes                           
+        +Spam training user:                   spam.iyoieaycrh@smartlogicit.com
+        +Non-spam(Ham) training user:          ham.tgbgs_iil@smartlogicit.com
+        +SMTP host:                            mail.smartlogicit.in          
+        +Web server HTTP port:                 8080                          
+        +Web server HTTPS port:                8443                          
+        +Web server mode:                      https                         
+        +IMAP server port:                     7143                          
+        +IMAP server SSL port:                 7993                          
+        +POP server port:                      7110                          
+        +POP server SSL port:                  7995                          
+        +Use spell check server:               yes                           
+        +Spell server URL:                     http://mail.smartlogicit.in:7780/aspell.php
+        +Enable version update checks:         TRUE                          
+        +Enable version update notifications:  TRUE                          
+        +Version update notification email:    admin@smartlogicit.com        
+        +Version update source email:          admin@smartlogicit.com        
+        +Install mailstore (service webapp):   yes                           
+        +Install UI (zimbra,zimbraAdmin webapps): yes                           
+
+   6) zimbra-spell:                            Enabled                       
+   7) zimbra-proxy:                            Enabled                       
+   8) Default Class of Service Configuration:                                
+   s) Save config to file                                                    
+   x) Expand menu                                                            
+   q) Quit                                    
+
+Address unconfigured (**) items  (? - help) 5
+
+
+Store configuration
+
+   1) Status:                                  Enabled                       
+   2) Create Admin User:                       yes                           
+   3) Admin user to create:                    admin@smartlogicit.com        
+** 4) Admin Password                           UNSET                         
+   5) Anti-virus quarantine user:              virus-quarantine.cwj7jssvyh@smartlogicit.com
+   6) Enable automated spam training:          yes                           
+   7) Spam training user:                      spam.iyoieaycrh@smartlogicit.com
+   8) Non-spam(Ham) training user:             ham.tgbgs_iil@smartlogicit.com
+   9) SMTP host:                               mail.smartlogicit.in          
+  10) Web server HTTP port:                    8080                          
+  11) Web server HTTPS port:                   8443                          
+  12) Web server mode:                         https                         
+  13) IMAP server port:                        7143                          
+  14) IMAP server SSL port:                    7993                          
+  15) POP server port:                         7110                          
+  16) POP server SSL port:                     7995                          
+  17) Use spell check server:                  yes                           
+  18) Spell server URL:                        http://mail.smartlogicit.in:7780/aspell.php
+  19) Enable version update checks:            TRUE                          
+  20) Enable version update notifications:     TRUE                          
+  21) Version update notification email:       admin@smartlogicit.com        
+  22) Version update source email:             admin@smartlogicit.com        
+  23) Install mailstore (service webapp):      yes                           
+  24) Install UI (zimbra,zimbraAdmin webapps): yes    
+
+Select, or 'r' for previous menu [r] 4
+
+Password for admin@smartlogicit.com (min 6 characters): [uU8ALhk5] nimda#372
+
+Store configuration
+
+   1) Status:                                  Enabled                       
+   2) Create Admin User:                       yes                           
+   3) Admin user to create:                    admin@smartlogicit.com        
+   4) Admin Password                           set                           
+   5) Anti-virus quarantine user:              virus-quarantine.cwj7jssvyh@smartlogicit.com
+   6) Enable automated spam training:          yes                           
+   7) Spam training user:                      spam.iyoieaycrh@smartlogicit.com
+   8) Non-spam(Ham) training user:             ham.tgbgs_iil@smartlogicit.com
+   9) SMTP host:                               mail.smartlogicit.in          
+  10) Web server HTTP port:                    8080                          
+  11) Web server HTTPS port:                   8443                          
+  12) Web server mode:                         https                         
+  13) IMAP server port:                        7143                          
+  14) IMAP server SSL port:                    7993                          
+  15) POP server port:                         7110                          
+  16) POP server SSL port:                     7995                          
+  17) Use spell check server:                  yes                           
+  18) Spell server URL:                        http://mail.smartlogicit.in:7780/aspell.php
+  19) Enable version update checks:            TRUE                          
+  20) Enable version update notifications:     TRUE                          
+  21) Version update notification email:       admin@smartlogicit.com        
+  22) Version update source email:             admin@smartlogicit.com        
+  23) Install mailstore (service webapp):      yes                           
+  24) Install UI (zimbra,zimbraAdmin webapps): yes                           
+
+Select, or 'r' for previous menu [r] r
+
+Main menu
+
+   1) Common Configuration:                                                  
+   2) zimbra-ldap:                             Enabled                       
+   3) zimbra-logger:                           Enabled                       
+   4) zimbra-mta:                              Enabled                       
+   5) zimbra-store:                            Enabled                       
+   6) zimbra-spell:                            Enabled                       
+   7) zimbra-proxy:                            Enabled                       
+   8) Default Class of Service Configuration:                                
+   s) Save config to file                                                    
+   x) Expand menu                                                            
+   q) Quit                                    
+
+*** CONFIGURATION COMPLETE - press 'a' to apply
+Select from menu, or press 'a' to apply config (? - help) a
+Save configuration data to a file? [Yes] y
+Save config in file: [/opt/zimbra/config.9181] press enter
+The system will be modified - continue? [No] y
+Operations logged to /tmp/zmsetup.20190710-135100.log
+Setting local config values....done.
+Initializing core config...Setting up CA...done.
+Deploying CA to /opt/zimbra/conf/ca ...done.
+Creating SSL zimbra-store certificate...done.
+Creating new zimbra-ldap SSL certificate...done.
+Creating new zimbra-mta SSL certificate...done.
+Creating new zimbra-proxy SSL certificate...done.
+Installing mailboxd SSL certificates...done.
+Installing MTA SSL certificates...done.
+Installing LDAP SSL certificate...done.
+Installing Proxy SSL certificate...done.
+Initializing ldap...done.
+Setting replication password...done.
+Setting Postfix password...done.
+Setting amavis password...done.
+Setting nginx password...done.
+Setting BES searcher password...done.
+Creating server entry for mail.smartlogicit.in...done.
+Setting Zimbra IP Mode...done.
+Saving CA in ldap...done.
+Saving SSL Certificate in ldap...done.
+Setting spell check URL...done.
+Setting service ports on mail.smartlogicit.in...done.
+Setting zimbraFeatureTasksEnabled=TRUE...done.
+Setting zimbraFeatureBriefcasesEnabled=TRUE...done.
+Checking current setting of zimbraReverseProxyAvailableLookupTargets
+Querying LDAP for other mailstores
+Searching LDAP for reverseProxyLookupTargets...done.
+Adding mail.smartlogicit.in to zimbraReverseProxyAvailableLookupTargets
+Setting TimeZone Preference...done.
+Initializing mta config...done.
+Setting services on mail.smartlogicit.in...done.
+Adding mail.smartlogicit.in to zimbraMailHostPool in default COS...done.
+Creating domain smartlogicit.com...done.
+Setting default domain name...done.
+Creating domain smartlogicit.com...already exists.
+Creating admin account admin@smartlogicit.com...done.
+Creating root alias...done.
+
+
+Notify Zimbra of your installation? [Yes] no
+Notification skipped
+Setting up zimbra crontab...done.
+
+	
+Moving /tmp/zmsetup.20190710-135100.log to /opt/zimbra/log
+
+
+Configuration complete - press return to exit PRESS ENTER
+
+
+********************************************************SET DKIM SMARTLOGICIT.IN****************************************************************
+
+#su zimbra
+#/opt/zimbra/libexec/zmdkimkeyutil -a -d smartlogicit.in -s selector
+
+DKIM Data added to LDAP for domain smartlogicit.in with selector selector
+Public signature to enter into DNS:
+selector._domainkey	IN	TXT	( "v=DKIM1; k=rsa; "
+	  "p=MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEApu7q7tAZTfIVhUIwY2OUSzYqtu5KxaziLDGNI7ta9TACDwFPPBO+xRZs6Bd1qZWbdtSx8SQgbPNYITtJRYf7l3zztsXZSgZwU3wz9zbzDlFnBV4aTFGLhNOCRVvaIQsFxFHhRsHDbvwZRGiWZZ1OotHwqPnRggkoug6NNCANyCPsRhZ0osPpWvryijgbdmdrZyfhAvghQa6dhh"
+	  "dYdkJy+28qIzwQh8hyN3Ymm9cwVtWSG3Xc5c2hOXCi20SLkwso6IoJqaiE/qBJcr56+SqZu+qIya4eiQ3tzTpRGrlUgqmDznKcd7b4oPMoyZR6VZOHzbjn2FiIkMH+4XUDtPmnqQIDAQAB" )  ; ----- DKIM key selector for smartlogicit.in
+
+---------------------------------------REMOVE OLD DKIM RECORD-------------------------------------------------------------
+
+[zimbra@mail root]$ /opt/zimbra/libexec/zmdkimkeyutil -r -d smartlogicit.in
+
+DKIM Data deleted in LDAP for domain smartlogicit.in
+
+---------------------------------------SET DKIM RECORD-------------------------------------------------------------
+
+[zimbra@mail root]$ /opt/zimbra/libexec/zmdkimkeyutil -a -d smartlogicit.in
+DKIM Data added to LDAP for domain smartlogicit.in with selector 2B850FAE-A3CB-11E9-8F04-7CD3B104E185
+Public signature to enter into DNS:
+2B850FAE-A3CB-11E9-8F04-7CD3B104E185._domainkey	IN	TXT	( "v=DKIM1; k=rsa; "
+	  "p=MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAzMFX/u/fQIDyyksA8Blkd012AYX/sfNErYMdxFhObe1VG179iSv0T6UDrztRL9uwXwrRyAUzHIxHoTXTN33cShhD2oPFtYQnv1Fx3AWXN8Sv3o85LyM47kFNpWmnUq//zikrcxmMaJNi2gULK6m6QFaKKZ/2G5KCt9UeZXX2pPW43czDU5I6teRac2iuzHu4QUTNPkDJwLs64A"
+	  "GxlLg0nZ7nIyUax0RAGX3uIkKiuJJfg/o2uKwAnKV1nslh+crOn56FpMZgO4B+nhhJjY+3MUf5EO54bEwGrJbT34qK7gMi+8uiS5pIKh2rkHG0YPM52pc7cbPPDD+WvMKzdjqBJwIDAQAB" )  ; ----- DKIM key 2B850FAE-A3CB-11E9-8F04-7CD3B104E185 for smartlogicit.in
+
+
+---------------------------------------ADD BIGROCK TXT RECORD--------------------------------------------------------------
+
+NAME::::: BCAAFD72-A56A-11E9-9D73-884CC2AC1656._domainkey
+
+VALUE::::: "v=DKIM1; k=rsa; "p=MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAugJ+KOtIIoALtpQ8hENXuM7Jv9e8EC+BFdi6fJ3hOnr3cXbr7JKzVGaDuQq6TiJbVwEI09Fy9B5gIYwu+PyyrztCCsCtuDw9xxoLy4O02NWnoFI47h3L/4lAD1pBfeKVLYbDUyytz9ATwrKBmKWiXqAkq8vyfVdpxpJ3my3h6AuiWLIz7rIZCODIA6tjP6LyudlTgQI68iWbARxXVpILNkblhbRlX5ftjcnno7ES2E9JlqcEKLQXCMqQF4teqZRE9xueEZ0VSXAMD+J6CakE49v1A5IGOGPpyYEEAZCuKoRVNObV9PKxYO7RBn3Noq62GF1o76Rn5CFWSsyQAdW2pQIDAQAB"
+
+
+
+------------------------*****VERIFY DKIM****---https://mxtoolbox.com/dkim.aspx-----OR------https://protodave.com/tools/dkim-key-checker/---------------------
+
+DOMAIN NAME: smartlogicit.in	
+SELECTOR : BCAAFD72-A56A-11E9-9D73-884CC2AC1656
+
+*************************************SPF RECORD FROM******https://www.mail-tester.com/spf-dkim-check**************************************
+DOMAIN NAME : SMARTLOGICIT.IN
+DKIM SELECTOR : BCAAFD72-A56A-11E9-9D73-884CC2AC1656
+  
+SPF CHECK	--	"v=spf1 redirect=_spf.mailhostbox.com"
+   
+*************************************DMARC VERIFY FROM*****https://dmarcian.com/dmarc-inspector/**************************************
+
+DMARC SHOUD BE LIKE : 
+NAME	;  	_dmarc.smartlogicit.in 
+Value 	;	"v=DMARC1; p=quarantine; rua=mailto:dmarc@smartlogicit.in; ruf=mailto:dmarc@smartlogicit.in; sp=quarantine"  
+
+
+*************************NEED TO ALLOW NATING TO GETING MAIL FROM WAN********https://wiki.zimbra.com/wiki/Incoming_Mail_Problems***************************
+
+#zmprove ms smartlogicit.in zimbraMtaLmtpHostLookup native
+
+#zmprov mcf zimbraMtaLmtpHostLookup native
+
+# zmmtactl restart
+
+
